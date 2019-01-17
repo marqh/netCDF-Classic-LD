@@ -1,0 +1,37 @@
+language: ruby
+rvm:
+    - 2.1.2
+
+install:
+    - gem install asciidoctor
+    - asciidoctor --version
+    - gem install --pre asciidoctor-pdf
+    - asciidoctor-pdf --version
+
+before_script:
+    - git config --global user.email $GIT_EMAIL
+    - git config --global user.name $GIT_NAME
+
+script:
+    - mkdir build
+    - asciidoctor standard_template/standard/standard_document.adoc -D build
+    - asciidoctor-pdf -d book standard_template/standard/standard_document.adoc -D build
+
+
+after_success:
+    # Always update the "gh-pages" branch, but tag build goes into
+    # tag directory and normal build goes into the root directory.
+    - git fetch origin gh-pages:gh-pages
+    - git checkout gh-pages
+    - TARGET_DIR='.';
+    - cp build/standard_document.html $TARGET_DIR/netCDF-LD.html
+    - cp build/standard_document.pdf $TARGET_DIR/netCDF-LD.pdf
+    - git add $TARGET_DIR/netCDF-LD.html
+    - git add $TARGET_DIR/netCDF-LD.pdf
+    - git commit -m "Auto-generated from ${TRAVIS_REPO_SLUG}@${TRAVIS_COMMIT}"
+    - git push https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git gh-pages >/dev/null 2>&1
+
+branches:
+    only:
+        - master
+
