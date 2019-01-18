@@ -20,7 +20,7 @@ script:
 
 after_success: |
     # Always update the "gh-pages" branch
-    # git fetch origin gh-pages:gh-pages
+    git fetch origin gh-pages:gh-pages
     git checkout gh-pages
     TARGET_DIR='.';
     cp build/standard_document.html $TARGET_DIR/netCDF-LD.html
