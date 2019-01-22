@@ -28,7 +28,7 @@ after_success: |
     git add $TARGET_DIR/netCDF-LD.html
     git add $TARGET_DIR/netCDF-LD.pdf
     git commit -m "Auto-generated"
-    git push -q https://${UNAME}:${GITHUB_API_KEY}@github.com/marqh/netCDF-Classic-LD.git  gh-pages >/dev/null 2>&1
+    git push -q https://${UNAME}:${GITHUB_API_KEY}@github.com/marqh/netCDF-Classic-LD.git  gh-pages
 
 branches:
     only:
