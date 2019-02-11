@@ -1,5 +1,5 @@
 == Conventions
-This sections provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.
+// This sections provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.
 
 === Identifiers
 The normative provisions in this specification are denoted by the URI
@@ -8,10 +8,28 @@ http://www.opengis.net/spec/{standard}/{m.n}
 
 All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
 
-=== UML model
-UML diagrams are included in this standard to illustrate the conceptual model 
-that underpins netCDF-classic-LD. 
-The UML model is not normative. 
-The UML profile used is specified in ISO 19103:2015.
+// === UML model
+// UML diagrams are included in this standard to illustrate the conceptual model 
+// that underpins netCDF-classic-LD. 
+// The UML model is not normative. 
+// The UML profile used is specified in ISO 19103:2015.
 
-Resources are modelled as UML interfaces.
+// Resources are modelled as UML interfaces.
+
+=== Resource Description Framework Triples
+
+This document describes Resource Description Framework (RDF) triples.  Where a triple is defined, it will exist on its own line and be formed of three space separated parts, the Subject Predicate and Object.
+
+Subjects and Predicates in RDF are always a URI, Objects may be a URI or a Literal.  URIs are denoted by the use of '<' and '>' to enclose the content.
+
+If the value of a URI is not standardised, the notation
+----
+<$entity>
+----
+is used.
+
+If the value of a Literal is not standardised, the notation
+----
+$literal
+----
+is used.
